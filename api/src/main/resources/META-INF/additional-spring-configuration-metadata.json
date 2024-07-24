@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "api.security.token.secret",
+      "type": "java.lang.String",
+      "description": "Secret used to generate JWT."
+  }
+] }

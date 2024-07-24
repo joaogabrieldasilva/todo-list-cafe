@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: todo-list-api
+    ports:
+      - 8080:8080
+    environment:
+      DATASOURCE_URL: jdbc:postgresql://db:5432/todolist
+      DATASOURCE_DATABASE: todolist
+      DATASOURCE_USERNAME: postgres
+      DATASOURCE_PASSWORD: password
+    depends_on:
+      - db
+  db:
+    image: postgres
+    container_name: todo-list-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: todolist
+    ports:
+      - 5432:5432
